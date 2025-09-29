@@ -58,6 +58,13 @@ void MyVector::clear() {
     size_ = 0;
 }
 
+// void MyVector::clear() {
+//     delete[] data_;
+//     data_ = new unsigned char[1];
+//     size_ = 0;
+//     capacity_ = 1;
+// }
+
 void MyVector::resize(size_t new_capacity) {
     unsigned char* new_data = new unsigned char[new_capacity];
     std::copy(data_, data_ + size_, new_data);

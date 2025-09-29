@@ -14,6 +14,8 @@ public:
     Decimal(Decimal&& other) noexcept;
     Decimal(std::initializer_list<unsigned char> init_list);
     
+    ~Decimal() = default;
+    
     void print() const;
     
     void push_back(unsigned char element);
