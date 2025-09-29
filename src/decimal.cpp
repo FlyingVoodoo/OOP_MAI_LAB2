@@ -15,6 +15,15 @@ Decimal::Decimal(const std::string& str) {
 Decimal::Decimal(const Decimal& other) : digits_(other.digits_) {
 }
 
+Decimal::Decimal(Decimal&& other) noexcept : digits_(std::move(other.digits_)) {
+}
+
+Decimal::Decimal(std::initializer_list<unsigned char> init_list) {
+    for (auto it = init_list.end() - 1; it >= init_list.begin(); --it) {
+        digits_.push_back(*it);
+    }
+}
+
 void Decimal::print() const {
     if (digits_.size() == 0) {
         std::cout << 0;

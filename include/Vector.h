@@ -13,6 +13,7 @@ public:
     MyVector();
     ~MyVector();
     MyVector(const MyVector& other);
+    MyVector(MyVector&& other) noexcept;
     MyVector& operator=(const MyVector& other);
 
     void push_back(unsigned char element);

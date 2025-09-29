@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <initializer_list>
 #include "Vector.h"
 
 class Decimal {
@@ -10,6 +11,8 @@ public:
     Decimal();
     Decimal(const std::string& str);
     Decimal(const Decimal& other);
+    Decimal(Decimal&& other) noexcept;
+    Decimal(std::initializer_list<unsigned char> init_list);
     
     void print() const;
     

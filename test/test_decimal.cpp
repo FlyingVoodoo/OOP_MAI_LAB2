@@ -51,3 +51,17 @@ TEST(DecimalCopyTest, CopyConstructor) {
     EXPECT_TRUE(equals(copy, original));
     EXPECT_TRUE(equals(original, Decimal("12345")));
 }
+
+TEST(DecimalInitializerListTest, InitializerListConstructor) {
+    Decimal d{1, 2, 3, 4, 5};
+    Decimal expected("12345");
+    EXPECT_TRUE(equals(d, expected));
+}
+
+TEST(DecimalMoveTest, MoveConstructor) {
+    Decimal original("12345");
+    Decimal moved = static_cast<Decimal&&>(original);
+    
+    EXPECT_TRUE(equals(moved, Decimal("12345")));
+    EXPECT_EQ(original.get_size(), 0);
+}

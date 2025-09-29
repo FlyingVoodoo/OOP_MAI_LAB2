@@ -12,6 +12,12 @@ MyVector::MyVector(const MyVector& other) : size_(other.size_), capacity_(other.
     std::copy(other.data_, other.data_ + size_, data_);
 }
 
+MyVector::MyVector(MyVector&& other) noexcept : size_(other.size_), capacity_(other.capacity_), data_(other.data_) {
+    other.size_ = 0;
+    other.capacity_ = 0;
+    other.data_ = nullptr;
+}
+
 MyVector& MyVector::operator=(const MyVector& other) {
     if (this == &other) {
         return *this;
